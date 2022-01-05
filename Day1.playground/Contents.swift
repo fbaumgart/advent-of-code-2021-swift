@@ -19,3 +19,22 @@ func countIncreasingSonarReadings(_ numbers: [Int]) -> Int {
 //answer should be 7
 let result = countIncreasingSonarReadings(InputData.testInput)
 let officialResult = countIncreasingSonarReadings(InputData.officialInput)
+
+
+// second part
+
+func getThreeWindowSums(from elements: [Int]) -> [Int] {
+  var chunks: [Int] = []
+  for (index, number) in elements.enumerated() {
+    if index < elements.endIndex - 2 {
+      let firstNumber = number
+      let secondNumber = elements[index + 1]
+      let thirdNumber = elements[index + 2]
+      chunks.append(firstNumber + secondNumber + thirdNumber)
+    }
+  }
+  return chunks
+}
+
+let chunks = getThreeWindowSums(from: InputData.officialInput)
+let result2 = countIncreasingSonarReadings(chunks)
